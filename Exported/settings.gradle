@@ -1,0 +1,47 @@
+pluginManagement {
+    repositories {
+//        maven { url("https://mirrors.cloud.tencent.com/maven/") }
+        maven { url("https://mirrors.huaweicloud.com/repository/maven/") }
+        maven { url("https://jf.guasemi.com/artifactory/maven-center/") }
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/google'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/central'
+        }
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+
+
+include ':launcher', ':tuanjieLibrary'
+
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+//        maven { url("https://mirrors.cloud.tencent.com/maven/") }
+        maven { url("https://mirrors.huaweicloud.com/repository/maven/") }
+        maven { url("https://jf.guasemi.com/artifactory/maven-center/") }
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/google'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/central'
+        }
+
+        google()
+        mavenCentral()
+        flatDir {
+            dirs "${project(':tuanjieLibrary').projectDir}/libs"
+        }
+    }
+}

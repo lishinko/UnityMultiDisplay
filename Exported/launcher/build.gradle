@@ -1,0 +1,110 @@
+plugins {
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.20"
+    id("org.jetbrains.kotlin.android")
+    id("com.android.application")
+}
+
+dependencies {
+    implementation project(':tuanjieLibrary')
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.fragment:fragment-ktx:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.material:material:1.12.0'
+//    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.8.4'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4'
+    implementation fileTree(dir: '../tuanjieLibrary/libs/', include: ['*.aar', '*.jar'], exclude: [])
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.8.4'
+    implementation 'androidx.activity:activity-compose:1.9.0'
+    implementation platform('androidx.compose:compose-bom:2024.04.01')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
+    implementation 'androidx.activity:activity:1.9.0'
+    androidTestImplementation platform('androidx.compose:compose-bom:2024.04.01')
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+//    implementation 'androidx.compose.compiler:compiler:1.5.0'
+}
+
+android {
+//    ndkPath "C:/Program Files/Tuanjie/Hub/Editor/2022.3.2t19/Editor/Data/PlaybackEngines/AndroidPlayer/NDK"
+
+    compileSdkVersion 34
+    buildToolsVersion '34.0.0'
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    defaultConfig {
+        minSdkVersion 33
+        targetSdkVersion 34
+        applicationId 'com.UnityTechnologies.com.unity.template.urpblank'
+        ndk {
+            abiFilters 'arm64-v8a'
+        }
+        versionCode 1
+        versionName '0.1.0'
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    aaptOptions {
+        noCompress = ['.tj3d', '.ress', '.resource', '.obb', '.bundle', '.tuanjieexp'] + tuanjieStreamingAssets.tokenize(', ')
+        ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:!CVS:!thumbs.db:!picasa.ini:!*~"
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt')
+            signingConfig signingConfigs.debug
+            jniDebuggable true
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt')
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    packagingOptions {
+        doNotStrip '*/arm64-v8a/*.so'
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+
+    bundle {
+        language {
+            enableSplit = false
+        }
+        density {
+            enableSplit = false
+        }
+        abi {
+            enableSplit = true
+        }
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    namespace 'com.UnityTechnologies.com.unity.template.urpblank'
+    buildFeatures {
+        viewBinding true
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.5.1'
+    }
+}

@@ -31,3 +31,23 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+/UnityWallPaper/Library/
+/UnityWallPaper/Logs/
+/UnityWallPaper/Temp/
+/UnityWallPaper/UnityWallPaper.sln
+/UnityWallPaper/UserSettings/EditorUserSettings.asset
+*.csproj
+/Exported/tuanjieLibrary/src/main/assets/bin/Data/
+/Exported/tuanjieLibrary/src/main/Il2CppOutputProject/IL2CPP/
+/Exported/tuanjieLibrary/src/main/Il2CppOutputProject/Source/
+.vs/
+/Exported/tuanjieLibrary/src/main/jniLibs/
+/UnityWallPaper/obj/
+/Exported/tuanjieLibrary/src/main/jniStaticLibs/
+/UnityWallPaper/UserSettings/
+/Exported/.gradle/
+/Exported/tuanjieLibrary/build/
+/Exported/launcher/build/
+/Exported/tuanjieLibrary/src/main/assets/bin/Data/Managed/
+/Exported/tuanjieLibrary/src/main/
