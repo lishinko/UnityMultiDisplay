@@ -11,7 +11,7 @@ Shader "Hidden/RTAlpha"
         ZWrite Off
         ZTest Always
         // Blend Zero One, One Zero
-        Blend SrcAlpha One, OneMinusSrcAlpha Zero
+        // Blend SrcAlpha One, OneMinusSrcAlpha Zero
 
         Pass
         {
@@ -48,6 +48,7 @@ Shader "Hidden/RTAlpha"
                 fixed4 col = tex2D(_MainTex, i.uv);
                 // just invert the colors
                 // col.rgb = 1 - col.rgb;
+                // col.a = 0.0;
                 return col;
             }
             ENDCG
