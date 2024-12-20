@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -30,7 +30,7 @@ namespace Horizon.HMI
             //Camera.main.Render();
             _tex.ReadPixels(rect, 0, 0);
             //var col = _tex.GetPixel(1280 - 400, 200);
-            var col = _tex.GetPixel( 100, 200);
+            var col = _tex.GetPixel( 127, 846);
             Debug.Log($"col = {col}");
             //Camera.main.targetTexture = null;
             _tex.Apply();

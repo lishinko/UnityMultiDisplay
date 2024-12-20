@@ -1,4 +1,4 @@
-Shader "Hidden/RTAlpha"
+﻿Shader "Hidden/RTAlpha"
 {
     Properties
     {
@@ -10,8 +10,13 @@ Shader "Hidden/RTAlpha"
         Cull Off
         ZWrite Off
         ZTest Always
-        // Blend Zero One, One Zero
-        // Blend SrcAlpha One, OneMinusSrcAlpha Zero
+        Blend SrcAlpha OneMinusSrcAlpha,One Zero
+        Tags 
+        {
+            // "RenderPipeline"="UniversalPipeline"这是一个URP Shader！
+            "Queue"="Transparent+10"
+            "RenderType"="Transparent"
+        }
 
         Pass
         {
@@ -48,7 +53,7 @@ Shader "Hidden/RTAlpha"
                 fixed4 col = tex2D(_MainTex, i.uv);
                 // just invert the colors
                 // col.rgb = 1 - col.rgb;
-                // col.a = 0.0;
+                // col.a *= 0.2;
                 return col;
             }
             ENDCG
