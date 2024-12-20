@@ -2,7 +2,6 @@ pluginManagement {
     repositories {
 //        maven { url("https://mirrors.cloud.tencent.com/maven/") }
         maven { url("https://mirrors.huaweicloud.com/repository/maven/") }
-        maven { url("https://jf.guasemi.com/artifactory/maven-center/") }
         maven {
             url 'https://maven.aliyun.com/repository/public'
         }
@@ -27,7 +26,6 @@ dependencyResolutionManagement {
     repositories {
 //        maven { url("https://mirrors.cloud.tencent.com/maven/") }
         maven { url("https://mirrors.huaweicloud.com/repository/maven/") }
-        maven { url("https://jf.guasemi.com/artifactory/maven-center/") }
         maven {
             url 'https://maven.aliyun.com/repository/public'
         }

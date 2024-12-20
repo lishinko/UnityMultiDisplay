@@ -10,7 +10,7 @@ android {
     ndkPath "C:/Program Files/Tuanjie/Hub/Editor/2022.3.27t1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK"
 
     compileSdkVersion 34
-    buildToolsVersion '34.0.0'
+    buildToolsVersion '32.0.0'
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
@@ -23,6 +23,8 @@ android {
         ndk {
             abiFilters 'arm64-v8a'
         }
+        versionCode 1
+        versionName '0.1.0'
         consumerProguardFiles 'proguard-tuanjie.txt'
     }
 
@@ -96,7 +98,6 @@ android {
             jni.srcDirs = ["src/main/Il2CppOutputProject"]
         }
     }
-    namespace 'com.unity3d.player'
 }
 
 

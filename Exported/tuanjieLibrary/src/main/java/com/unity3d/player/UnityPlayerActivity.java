@@ -75,45 +75,27 @@ public class UnityPlayerActivity extends Activity implements IUnityPlayerLifecyc
     @Override protected void onStop()
     {
         super.onStop();
-
-        if (!MultiWindowSupport.getAllowResizableWindow(this))
-            return;
-
-        mUnityPlayer.pause();
+        mUnityPlayer.onStop();
     }
 
     @Override protected void onStart()
     {
         super.onStart();
-
-        if (!MultiWindowSupport.getAllowResizableWindow(this))
-            return;
-
-        mUnityPlayer.resume();
+        mUnityPlayer.onStart();
     }
 
     // Pause Unity
     @Override protected void onPause()
     {
         super.onPause();
-
-        MultiWindowSupport.saveMultiWindowMode(this);
-
-        if (MultiWindowSupport.getAllowResizableWindow(this))
-            return;
-
-        mUnityPlayer.pause();
+        mUnityPlayer.onPause();
     }
 
     // Resume Unity
     @Override protected void onResume()
     {
         super.onResume();
-
-        if (MultiWindowSupport.getAllowResizableWindow(this) && !MultiWindowSupport.isMultiWindowModeChangedToTrue(this))
-            return;
-
-        mUnityPlayer.resume();
+        mUnityPlayer.onResume();
     }
 
     // Low Memory Unity
