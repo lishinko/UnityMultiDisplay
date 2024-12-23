@@ -16,6 +16,8 @@ Shader "Unlit/PremultiplyColor"
         LOD 100
         ZWrite Off
         Cull Off
+        ZTest Off
+        Blend Off
         // Blend SrcAlpha OneMinusSrcAlpha
 
         Pass

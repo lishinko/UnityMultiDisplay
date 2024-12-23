@@ -26,7 +26,12 @@ public partial class FullScreenPassRendererFeature : ScriptableRendererFeature
         /// <summary>
         /// Inject a full screen pass after post processing is rendered.
         /// </summary>
-        AfterRenderingPostProcessing = RenderPassEvent.AfterRenderingPostProcessing
+        AfterRenderingPostProcessing = RenderPassEvent.AfterRenderingPostProcessing,
+
+        /// <summary>
+        /// Inject a full screen pass after all rendering.
+        /// </summary>
+        AfterRendering = RenderPassEvent.AfterRendering
     }
 
     /// <summary>
