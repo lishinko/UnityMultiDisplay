@@ -12,7 +12,9 @@ namespace Horizon.HMI
         [ContextMenu("保存当前画面")]
         public void Save()
         {
+#if UNITY_EDITOR
             SRF.CaptureOnce();
+#endif
             //ScreenCapture.CaptureScreenshot("D:/rt.png");
             return;
             if (RT != null)

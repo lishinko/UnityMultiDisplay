@@ -24,7 +24,7 @@ namespace Horizon.HMI
                 return;
             }
             Rect rect = new Rect { width = _tex.width, height = _tex.height };
-            Debug.Log($"rect = {rect}");
+            Debug.Log($"rect = {rect}, w = {Screen.width}, h = {Screen.height}");
             //renderingData.cameraData.targetTexture;
             //Camera.main.targetTexture = _rt;
             //Camera.main.Render();

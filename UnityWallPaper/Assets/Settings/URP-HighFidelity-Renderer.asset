@@ -110,4 +110,6 @@ MonoBehaviour:
   m_Name: CaptureScreenRenderFeature
   m_EditorClassIdentifier: 
   m_Active: 1
+  PremultiplyColor: 0
+  PremultiplyMaterial: {fileID: 2100000, guid: 89355f2f16fdce0478b31b4fc2a46b54, type: 2}
   RT: {fileID: 8400000, guid: d2fb255a0fde12d49ac1d192ea50de72, type: 2}

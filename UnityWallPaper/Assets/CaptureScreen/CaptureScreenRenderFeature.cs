@@ -1,4 +1,4 @@
-using System.Collections;
+锘縰sing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -6,9 +6,25 @@ namespace Horizon.HMI
 {
     public class CaptureScreenRenderFeature : ScriptableRendererFeature
     {
+        public bool PremultiplyColor = false;
+        public Material PremultiplyMaterial;
+#if UNITY_EDITOR
         public RenderTexture RT;
+#endif
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
         {
+            if (PremultiplyColor)
+            {
+                if (renderingData.cameraData.renderType == CameraRenderType.Base)
+                {
+                    if (renderingData.cameraData.cameraType == CameraType.Game)
+                    {
+                        renderer.EnqueuePass(_premultiplyColorPass);
+                    }
+                }
+            }
+
+#if UNITY_EDITOR
             if (!_capture)
             {
                 return;
@@ -19,25 +35,36 @@ namespace Horizon.HMI
                 {
                     renderer.EnqueuePass(_capturePass);
                     _capture = false;
-                    Debug.Log($"截屏命令已经传递到渲染线程");
+                    Debug.Log($"鎴睆鍛戒护宸茬粡浼犻�掑埌娓叉煋绾跨▼");
                 }
             }
+#endif
         }
+#if UNITY_EDITOR
         public void CaptureOnce()
         {
             if (_capture)
             {
-                Debug.LogWarning($"已经在截屏了");
+                Debug.LogWarning($"宸茬粡鍦ㄦ埅灞忎簡");
                 return;
             }
             _capture = true;
         }
+#endif
 
         public override void Create()
         {
+#if UNITY_EDITOR
             _capturePass = new CaptureScreenPass(RT);
+#endif
+            _premultiplyRT = new RenderTexture(Screen.width, Screen.height, RT.depth);
+            _premultiplyColorPass = new PremultiplyColorPass(PremultiplyMaterial, _premultiplyRT);
         }
+        private PremultiplyColorPass _premultiplyColorPass;
+#if UNITY_EDITOR
+        private RenderTexture _premultiplyRT;
         private CaptureScreenPass _capturePass;
         private bool _capture;
+#endif
     }
 }
