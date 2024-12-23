@@ -57,12 +57,12 @@ namespace Horizon.HMI
 #if UNITY_EDITOR
             _capturePass = new CaptureScreenPass(RT);
 #endif
-            _premultiplyRT = new RenderTexture(Screen.width, Screen.height, RT.depth);
+            _premultiplyRT = new RenderTexture(Screen.width, Screen.height, 24);
             _premultiplyColorPass = new PremultiplyColorPass(PremultiplyMaterial, _premultiplyRT);
         }
         private PremultiplyColorPass _premultiplyColorPass;
-#if UNITY_EDITOR
         private RenderTexture _premultiplyRT;
+#if UNITY_EDITOR
         private CaptureScreenPass _capturePass;
         private bool _capture;
 #endif
