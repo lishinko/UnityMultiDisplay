@@ -3,6 +3,7 @@ apply plugin: 'org.jetbrains.kotlin.android'
 
 dependencies {
     implementation project(':tuanjieLibrary')
+    implementation fileTree(dir: project(':tuanjieLibrary').getProjectDir().toString() + ('\\libs'), include: ['*.jar'])
     implementation 'com.android.support.constraint:constraint-layout:2.0.4'
 }
 

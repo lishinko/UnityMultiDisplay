@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">UnityWallPaper</string>
     <string name="game_view_content_description">Game view</string>
+    <string name="change_to_surfaceView">点击切换到surfaceView</string>
 </resources>
