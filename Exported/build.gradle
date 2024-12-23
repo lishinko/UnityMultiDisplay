@@ -5,7 +5,8 @@ plugins {
     // To specify a custom Gradle version in Tuanjie, go do "Preferences > External Tools", uncheck "Gradle Installed with Tuanjie (recommended)" and specify a path to a custom Gradle version
     id 'com.android.application' version '7.1.2' apply false
     id 'com.android.library' version '7.1.2' apply false
-    
+    id 'org.jetbrains.kotlin.android' version '1.9.23' apply false
+
 }
 
 task clean(type: Delete) {
